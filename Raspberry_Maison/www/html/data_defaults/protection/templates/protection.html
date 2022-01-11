@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ruche Connectée</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/materialize.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{ url_for('static', filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <nav class="teal" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="http://base_web_ip" class="waves-effect waves-light btn-small teal lighten-4 center-align">Retour</a>
+      <h7 id="logo-container" href="#!">  Dispostif de protection</h7>
+    </div>
+  </nav>
+
+<div class="teal-text center-align">
+<h3>Fermeture.</h3>
+<h7>Pour la fermeture de la ruche, appuyer sur le bouton ci-dessous.</h7>
+</div>
+<h3></h3>
+
+<form method="post" action="{{url_for('change')}}">
+  <div class="center-align">
+  <a class="waves-effect waves-light btn">
+      <i class="material-icons arrow_downward">arrow_downward</i>
+          <input class="white-text" type="submit" name="switch" value="FERMETURE"/>
+  </a>
+</div>
+<h3></h3>
+</form>
+
+<form method="post" action="{{url_for('change')}}">
+  <div class="center-align">
+  <a class="waves-effect waves-light btn">
+      <i class="material-icons left">arrow_upward</i>
+          <input class="white-text" type="submit" name="switch" value="OUVERTURE"/>
+  </a>
+</div>
+</form>
+
+<h3></h3>
+  <div class="progress">
+      <div class="indeterminate"></div>
+  </div>
+<h3></h3>
+
+<div class="center-align"><img src="{{ url_for('static', filename='activite_GIF.gif') }}" width="100%"></div>
+    
+  
+
+<footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Information</h5>
+          <h6>Merci de nous faire confiance, vous êtes à présent acteur pour la sauvegarde de cette espèce.</h6>
+          <h5></h5>
+    <div class="footer-copyright">
+            <div class="container">
+            © 2021-2022 IUT Rennes 1
+            <a class="grey-text text-lighten-4 right" href="mailto:ruche3.0.1@gmail.com">Ruche Connectée</a>
+            </div>
+          </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{{ url_for('static', filename='js/materialize.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/init.js') }}"></script>
+
+
+  </body>
+</html>
