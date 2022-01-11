@@ -42,7 +42,7 @@ while(True):
         serveur = smtplib.SMTP('smtp.gmail.com', 587)
         serveur.starttls()
         serveur.login("ruche3.0.1@gmail.com", "ezfbwwbsnhaekbyp")
-        message = "L humidite de votre ruche est dangeureuse pour son ecosysteme"
+        message = "Erreur de Communication"
         serveur.sendmail("ruche3.0.1@gmail.com", "thomasdollet.tl@gmail.com", message)
         serveur.quit()
         break
