@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
+#!/https://urlz.fr/hb4y
 # -*- coding: utf-8 -*-
 """
-https://urlz.fr/hb4y
 @author: Anaelle
 """
 
