@@ -24,7 +24,6 @@ my_servo.angle=etat_open
 
 i2c = board.I2C()
 bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
-# bme280_2 = adafruit_bme680.Adafruit_BME680_I2C(i2c,address=0x76, debug=False)
 bme280 = adafruit_bme280.Adafruit_BME280_I2C(i2c, address=0x76)
 
 temperature_offset_1 = 0.4
@@ -38,33 +37,18 @@ k=0
 while True:
 
 
-    nombre_mesure = 64
+    nombre_mesure = 128
     val = 0
     masse = 0
-    mesure = []
 
     for i in range (nombre_mesure):
         a = pin_masse.value
         val = val + a
-        mesure.append(a)
-        time.sleep(0.05)
-
-    mesure.sort()
-    b = mesure[63]-mesure[0]
+        
     CAN = val/nombre_mesure
     masse_g = A * CAN + B
-    print(b)
 
-    #Calcul de l'écart-type
-    ecart = []
-    for i in mesure :
-        ecart.append(math.pow(i-CAN,2))
-    somme = 0
-    for i in ecart :
-        somme += i
-    std = math.sqrt(somme/nombre_mesure)
-    print("std : ",std)
-
+    
     temp_int = round(bme680.temperature + temperature_offset_1 , 2)
     temp_ext = round(bme280.temperature + temperature_offset_2 , 2)
     hum_int = round(bme680.relative_humidity , 2)
@@ -85,7 +69,6 @@ while True:
 
     etat = pin_ouverture.value
 
-    #etat=int(input("etat : "))
     if(etat== False  and suivi!=1):
         for angle in range(etat_open, etat_close, 1):  # 0 - 180 degrees, 5 degrees at a time.
             my_servo.angle = angle
