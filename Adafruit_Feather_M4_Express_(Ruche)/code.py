@@ -70,35 +70,18 @@ while True:
     hum_int = round(bme680.relative_humidity , 2)
     hum_ext = round(bme280.relative_humidity , 2)
     masse = round( masse , 1)
-    nom="Paquerrette Fleurie"
-    tag1="Bonne sante"
-    tag2="Sunny"
-    tag3="RAS"
-    info_reine="Rien à signaler aucune naissance à l'horizon!"
-    etat_chant="check"
-
+    
     print(masse_g)
 
-    #print("Temp_int: %0.2f C" % temp_int)
-    #print("Temp_ext: %0.2f C" % temp_ext)
-    #print("Hum_int: %0.2f " % hum_int)
-    #print("Hum_ext: %0.2f \n" % hum_ext)
+    print("Temp_int: %0.2f C" % temp_int)
+    print("Temp_ext: %0.2f C" % temp_ext)
+    print("Hum_int: %0.2f " % hum_int)
+    print("Hum_ext: %0.2f \n" % hum_ext)
 
-    #ft=open("fichier_transfert.txt", "w")
-    #ft.write(str(nom)+"/"+str(tag1)+"/"+str(tag2)+"/"+str(tag3)+"/"+str(temp_int) + '/' + str(temp_ext) + '/' + str(hum_int) + '/' + str(hum_ext) + '/' + str(masse) + '/'+str(info_reine)+"/"+str(etat_chant)+"/"+str(k))
-    #ft.write(str(i))
-    #ft.close()
-    k=k+1
-
-
-
-
-    #with open("fichier_transfert.txt", "w") as ft:
-    #    ft.flush()
-    #    ft.write(str(nom)+"/"+str(tag1)+"/"+str(tag2)+"/"+str(tag3)+"/"+str(temp_int) + '/' + str(temp_ext) + '/' + str(hum_int) + '/' + str(hum_ext) + '/' + str(masse) + '/'+str(info_reine)+"/"+str(etat_chant)+"/"+str(k))
-    #ft.close()
-    #k=k+1
-
+    ft=open("fichier_transfert.txt", "w")
+    ft.write(str(nom)+"/"+str(tag1)+"/"+str(tag2)+"/"+str(tag3)+"/"+str(temp_int) + '/' + str(temp_ext) + '/' + str(hum_int) + '/' + str(hum_ext) + '/' + str(masse) + '/'+str(info_reine)+"/"+str(etat_chant)+"/"+str(k))
+    ft.write(str(i))
+    ft.close()
 
     etat = pin_ouverture.value
 
@@ -118,8 +101,6 @@ while True:
         suivi=0
         print("Dispositif de sécurité désactivé")
 
-    #print(suivi)
-    #print("k: %f C" %k)
-    print ('')
+    print(suivi)
 
     time.sleep(1)
