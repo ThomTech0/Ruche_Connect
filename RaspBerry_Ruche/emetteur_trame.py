@@ -1,4 +1,4 @@
-#----- A simple TCP client program in Python using send() function -----
+#-----  A simple TCP client program in Python using send() function  -----
 
 import socket
 import time
